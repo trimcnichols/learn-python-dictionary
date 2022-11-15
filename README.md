@@ -13,6 +13,89 @@ Click the snake to see the code and explanation about my code
 
 *******************************************
 -->
+<details><summary>:snake: Inventory substitution game</summary>
+<p>
+
+```python
+ equipped = {'right_hand' : 'Nothing', 'left_hand' : 'Nothing'}
+
+equipped['right_hand'] = 'Dagger'
+equipped['left_hand'] = 'Shield'
+print(equipped)
+
+print()
+
+backpack = ['gemstone', 'trinket', 'sword']
+
+temp = equipped['right_hand']
+equipped['right_hand'] = backpack[2]
+backpack[2] = temp
+print(equipped)
+print(backpack)
+print()
+
+money ={'gold' : 5, 'silver' : 13, 'copper':24}
+armor = 7
+left = 7
+if left > money['gold']:
+	left -=money['gold']
+	money['gold']=0
+else:
+	money['gold'] -=left
+	left = 0
+left *=5
+if left  > money['silver']:
+	left -=money['silver']
+	money['silver']= 0
+else:
+	money['silver'] -= left
+	left =0 
+left *=10 
+if left > money['copper']:
+	left -=money['copper']
+	money['copper'] = 0
+else:
+	money['copper'] -= left
+	left = 0
+print(left)
+print(money)
+equipped['body'] = 'steel armor'
+
+print(equipped)
+print(money)
+
+weapon_left = input("what do you want to hold in your left hand: ")
+if weapon_left in backpack:
+	backpack.append(equipped['left_hand'])
+	equipped['left_hand'] = weapon_left
+	backpack.remove(weapon_left)
+else:
+	print("I dont have that")
+
+print(equipped)
+print(backpack)
+loot = ['bow','health potion','leather armor']
+for i in range(len(loot)):
+	backpack.append(loot[i])
+print(backpack)
+
+found_money = {'silver': 1, 'copper': 4}
+#money['silver'] +=found_money['silver']
+#money['copper'] +=found_money['copper']
+for token in found_money:
+	if token in money:
+		money[token] +=found_money[token]
+	else:
+		money[token] = money[token]
+
+print(money)
+
+
+  
+```
+</p>
+</details>
+
 <details><summary>:snake: Employee database project</summary>
 <p>
 
